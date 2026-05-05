@@ -1,0 +1,31 @@
+# Sentinel-Network — Configuración del Agente
+
+# Intervalo de verificación en segundos
+check_interval: 10
+
+# Archivos críticos monitorizados por el MVI
+monitored_files:
+  - /etc/shadow
+  - /etc/passwd
+  - /etc/ssh/sshd_config
+  - /etc/crontab
+  - /etc/sudoers
+
+# Orquestador
+orchestrator:
+  host: "10.10.10.20"
+  port: 9999
+
+# Puertos de destino permitidos (MMR)
+allowed_ports:
+  - 22    # SSH
+  - 80    # HTTP
+  - 443   # HTTPS
+  - 9999  # Orquestador
+
+# Procesos con conexiones de red permitidas
+allowed_processes:
+  - sshd
+  - python3
+  - systemd
+  - sentinel-agent
