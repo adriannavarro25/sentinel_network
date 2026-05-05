@@ -1,0 +1,25 @@
+# Sentinel-Network — Configuración del Orquestador
+
+# Puerto en el que escucha el receptor de alertas
+listen:
+  host: "0.0.0.0"
+  port: 9999
+
+# Credenciales del switch SONiC
+switch:
+  host: "192.168.198.128"   # IP de gestión del switch SONiC en GNS3
+  port: 22
+  username: "admin"
+  password: "YourPaSsWorD"  # Contraseña por defecto de SONiC
+
+# Configuración de VLANs
+vlans:
+  production: 10
+  quarantine: 666
+
+# Puerto del switch donde está conectado el servidor víctima
+# (Ethernet0 corresponde al puerto eth 1/1/1 en GNS3)
+victim_interface: "Ethernet0"
+
+# Rate limiting: segundos mínimos entre aislamientos del mismo agente
+rate_limit_seconds: 30
